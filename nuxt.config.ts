@@ -52,11 +52,11 @@ const config: NuxtConfiguration = {
       plugins: {
         tailwindcss: './tailwind.config.js'
       }
-    } //,
+    } // ,
     /*
      ** You can extend webpack config here
      */
-    //extend(config, ctx) {}
+    // extend(config, ctx) {}
   }
 }
 
