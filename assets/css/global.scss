@@ -1,0 +1,20 @@
+@tailwind base;
+
+html {
+  @apply font-sans font-normal text-base;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  @apply m-0;
+  box-sizing: border-box;
+}
+
+@tailwind components;
+@tailwind utilities;

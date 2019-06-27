@@ -1,3 +1,8 @@
 {
-  "vetur.validation.style": false
+  "vetur.validation.style": false,
+  "css.validate": false,
+  "scss.validate": false,
+  "less.validate": false,
+  "stylelint.enable": true,
+  "tailwindCSS.emmetCompletions": true
 }
