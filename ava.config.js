@@ -1,5 +1,5 @@
 export default {
   compileEnhancements: false,
-  extensions: ['ts'],
+  extensions: ['ts', 'js'],
   require: ['ts-node/register', './test/helpers/setup.js']
 }
