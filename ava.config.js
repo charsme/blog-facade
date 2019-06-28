@@ -1,3 +1,5 @@
 export default {
-  require: ['./test/helpers/setup.js']
+  compileEnhancements: false,
+  extensions: ['ts'],
+  require: ['ts-node/register', './test/helpers/setup.js']
 }
