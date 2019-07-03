@@ -74,7 +74,7 @@ export default {
   props: {
     drawn: {
       type: Boolean,
-      default: () => false
+      default: false
     }
   }
 }
@@ -84,9 +84,9 @@ export default {
 .search {
   @apply flex items-center relative;
   &__toggle {
-    @apply py-1 px-2 block cursor-pointer;
+    @apply py-1 px-3 block cursor-pointer;
     &--icon {
-      @apply h-4 w-4 stroke-current;
+      @apply h-4 stroke-current;
     }
   }
   &__toggler {

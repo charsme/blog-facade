@@ -26,7 +26,7 @@ export default {
 
 <style lang="scss">
 .header {
-  @apply w-full fixed bg-transparent left-0 top-0 z-10 py-6;
+  @apply w-full fixed bg-transparent left-0 top-0 z-10 pt-6 pb-4;
   &__container {
     @apply px-16 max-w-inherit flex mx-auto w-full justify-between items-center h-8;
   }
@@ -37,12 +37,10 @@ export default {
 .navigation {
   @apply m-0 ml-4 text-right flex items-center;
 }
-
 .nav {
-  @apply flex items-center justify-center;
-
+  @apply flex items-center justify-center font-serif;
   a {
-    @apply px-2 capitalize;
+    @apply px-4 capitalize;
   }
 }
 </style>
