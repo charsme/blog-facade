@@ -18,6 +18,11 @@ const config: NuxtConfiguration = {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
+  router: {
+    linkActiveClass: 'link--active',
+    linkExactActiveClass: 'link--exact-active',
+    linkPrefetchedClass: 'link--prefetch'
+  },
   /*
    ** Customize the progress-bar color
    */
@@ -36,7 +41,7 @@ const config: NuxtConfiguration = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa',
+    // '@nuxtjs/pwa',
     '@nuxtjs/eslint-module'
   ],
   /*
@@ -48,6 +53,11 @@ const config: NuxtConfiguration = {
    ** Build configuration
    */
   build: {
+    // analyze: true,
+    // cssSourceMap: true,
+    devtools: true,
+    // extractCSS: true,
+    // parallel: true,
     postcss: {
       plugins: {
         tailwindcss: './tailwind.config.js'

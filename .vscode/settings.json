@@ -4,5 +4,7 @@
   "scss.validate": false,
   "less.validate": false,
   "stylelint.enable": true,
-  "tailwindCSS.emmetCompletions": true
+  "tailwindCSS.emmetCompletions": true,
+  "eslint.autoFixOnSave": true,
+  "tslint.autoFixOnSave": true,
 }

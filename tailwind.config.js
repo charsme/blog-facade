@@ -49,6 +49,7 @@ module.exports = {
     },
     zIndex: {
       auto: 'auto',
+      behind: '-10',
       '0': '0',
       '0i': '1',
       '10': '10',
@@ -61,6 +62,53 @@ module.exports = {
       '40i': '41',
       '50': '50',
       '50i': '51'
+    },
+    height: theme => ({
+      auto: 'auto',
+      ...theme('spacing'),
+      half: '50%',
+      full: '100%',
+      screen: '100vh'
+    }),
+    maxHeight: {
+      inherit: 'inherit',
+      half: '50%',
+      full: '100%',
+      screen: '100vh'
+    },
+    maxWidth: {
+      inherit: 'inherit',
+      xs: '20rem',
+      sm: '24rem',
+      md: '28rem',
+      lg: '32rem',
+      xl: '36rem',
+      '2xl': '42rem',
+      '3xl': '48rem',
+      '4xl': '56rem',
+      '5xl': '64rem',
+      '6xl': '72rem',
+      half: '50%',
+      full: '100%'
+    },
+    minHeight: {
+      inherit: 'inherit',
+      '0': '0',
+      half: '50%',
+      full: '100%',
+      screen: '100vh'
+    },
+    minWidth: {
+      inherit: 'inherit',
+      '0': '0',
+      half: '50%',
+      full: '100%'
+    },
+    inset: {
+      '0': '0',
+      half: '50%',
+      full: '100%',
+      auto: 'auto'
     },
     extend: {}
   },
