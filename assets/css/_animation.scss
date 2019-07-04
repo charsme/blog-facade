@@ -1,0 +1,7 @@
+@mixin transition(
+  $property: 'opacity',
+  $duration: '0.5s',
+  $animation: 'cubic-bezier(0.28, 0.12, 0.22, 1)'
+) {
+  transition: $property $duration $animation;
+}

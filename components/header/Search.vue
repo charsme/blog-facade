@@ -71,16 +71,17 @@ export default {
     SearchIcon: () => import('~/components/icons/Search'),
     CloseIcon: () => import('~/components/icons/Close')
   },
-  props: {
-    drawn: {
-      type: Boolean,
-      default: false
+  data: () => {
+    return {
+      drawn: false
     }
   }
 }
 </script>
 
 <style lang="scss">
+@import '~assets/css/_animation';
+
 .search {
   @apply flex items-center relative;
   &__toggle {
@@ -93,7 +94,8 @@ export default {
     @apply hidden invisible h-0 w-0 z-behind absolute left-0 top-0;
   }
   &__wrapper {
-    @apply bg-black block h-screen w-screen fixed top-0 right-0 left-0 flex items-center justify-center;
+    @apply bg-black h-screen w-screen fixed top-0 right-0 left-0 flex items-center justify-center;
+    @include transition(all, 0.5s, cubic-bezier(0.28, 0.12, 0.22, 1));
     &.close {
       @apply opacity-0 invisible z-behind;
     }

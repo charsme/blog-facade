@@ -1,13 +1,14 @@
 @tailwind base;
+/* components */
+@tailwind components;
+/* utilities */
+@tailwind utilities;
 
 html {
+  @apply overflow-x-hidden overflow-y-scroll;
   box-sizing: border-box;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  font-size: 100%;
   -webkit-tap-highlight-color: theme('colors.black');
 }
-
 body {
   @apply bg-white overflow-x-hidden font-sans font-normal text-black text-base leading-relaxed tracking-normal not-italic;
   font-size-adjust: 0.6;
@@ -18,19 +19,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -moz-font-feature-settings: 'liga' on;
 }
-
 ::selection {
   @apply bg-blue-200;
   text-shadow: none;
 }
-
 *,
 *:before,
 *:after {
   @apply m-0;
   box-sizing: border-box;
 }
-
 .screen-reader-text {
   clip: rect(1px, 1px, 1px, 1px);
   position: absolute;
@@ -38,6 +36,3 @@ body {
   width: 1px;
   overflow: hidden;
 }
-
-@tailwind components;
-@tailwind utilities;

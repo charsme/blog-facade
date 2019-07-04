@@ -10,7 +10,9 @@
           "apply",
           "media",
           "variants",
-          "responsive"
+          "responsive",
+          "mixin",
+          "include"
         ]
       }
     ],
