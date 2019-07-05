@@ -9,15 +9,13 @@ module.exports = {
   },
   extends: [
     '@nuxtjs',
+    'plugin:vue/recommended',
     'plugin:nuxt/recommended',
     'plugin:prettier/recommended',
     'prettier',
     'prettier/vue'
   ],
-  plugins: [
-    '@typescript-eslint',
-    'prettier'
-  ],
+  plugins: ['@typescript-eslint', 'prettier'],
   // add your custom rules here
   rules: {
     '@typescript-eslint/no-unused-vars': 'error'
