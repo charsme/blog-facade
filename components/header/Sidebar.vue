@@ -16,42 +16,45 @@
       class="sidebar__toggler"
     />
     <aside
-      class="sidebar__container pullover"
+      class="sidebar__container"
       role="complementary"
       :class="drawn ? 'open' : 'close'"
     >
-      <div class="pullover__overlay"></div>
-      <div class="pullover__container">
-        <label
-          class="pullover__toggle"
-          for="sidebar_toggler"
-          @click.stop="drawn = !drawn"
-        >
-          <span class="screen-reader-text">Close pullover drawer.</span>
-          <icon
-            icon-name="close"
-            class="pullover__toggle--icon"
-            stroke-width="1"
-            ><close-icon
-          /></icon>
-        </label>
-        <div class="pullover__wrapper">
-          <section class="pullover__about">
-            <h2>Blog Facade</h2>
-          </section>
-          <section class="pullover__recent">
-            <ul>
-              <li>some link</li>
-            </ul>
-          </section>
-          <section class="pullover__badges">
-            <div>some badges</div>
-          </section>
+      <div class="pullover">
+        <div class="pullover__container">
+          <label
+            class="pullover__toggle"
+            for="sidebar_toggler"
+            @click.stop="drawn = !drawn"
+          >
+            <span class="screen-reader-text">Close pullover drawer.</span>
+            <icon
+              icon-name="close"
+              class="pullover__toggle--icon"
+              stroke-width="1"
+              ><close-icon
+            /></icon>
+          </label>
+          <div class="pullover__wrapper">
+            <section class="pullover__about">
+              <h2>Blog Facade</h2>
+            </section>
+            <section class="pullover__recent">
+              <ul>
+                <li>some link</li>
+              </ul>
+            </section>
+            <section class="pullover__badges">
+              <div>some badges</div>
+            </section>
+          </div>
         </div>
+        <div class="pullover__overlay"></div>
       </div>
     </aside>
   </div>
 </template>
+
 <script>
 export default {
   components: {
@@ -66,6 +69,7 @@ export default {
   }
 }
 </script>
+
 <style lang="scss">
 @import '~assets/css/_animation';
 
@@ -81,17 +85,23 @@ export default {
     @apply hidden invisible h-0 w-0 z-behind absolute left-0 top-0;
   }
   &__container {
-    @apply overflow-y-auto overflow-x-hidden fixed top-0 bottom-0 w-screen h-screen;
+    @apply fixed w-screen h-screen top-0 z-30 block;
+
+    &.open {
+      @apply left-0;
+    }
+    &.close {
+      @apply left-full;
+    }
   }
 }
 .pullover {
-  @apply ml-auto min-w-half w-1/2 h-auto bg-black relative p-8 text-white z-30i opacity-100;
-
-  &__toggle {
-    @apply p-1 block cursor-pointer absolute right-0 top-0;
-    &--icon {
-      @apply h-8 w-8 stroke-current text-white;
-    }
+  @apply w-full h-full relative text-center;
+  &__container {
+    @apply absolute top-0 right-0 z-40 opacity-100 bg-black text-white w-1/2 min-h-screen;
+  }
+  &__overlay {
+    @apply absolute top-0 left-0 z-30 opacity-50 bg-white w-screen h-screen;
   }
 }
 </style>
