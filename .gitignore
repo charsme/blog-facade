@@ -85,4 +85,5 @@ dist
 sw.*
 
 # Mac OSX
-.DS_Store
+.DS_Storetests_output
+.e2e_output
