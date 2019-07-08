@@ -1,66 +1,54 @@
 <template>
   <div class="search">
-    <label
-      class="search__toggle"
-      for="search_toggler"
-      @click.stop="drawn = !drawn"
-    >
+    <label class="search__toggle" @click.stop="drawn = !drawn">
       <icon icon-name="search" class="search__toggle--icon"
         ><search-icon
       /></icon>
     </label>
-    <input
-      id="search_toggler"
-      type="checkbox"
-      name="search_toggler"
-      class="search__toggler"
-    />
-    <div class="search__wrapper" :class="drawn ? 'open' : 'close'">
-      <section class="searchform">
-        <h2 class="searchform__title">
-          Press Enter / Return to begin your search.
-        </h2>
-        <label
-          class="searchform__toggle"
-          for="search_toggler"
-          @click.stop="drawn = !drawn"
-        >
-          <span class="screen-reader-text">Close search form.</span>
-          <icon
-            icon-name="close"
-            class="searchform__toggle--icon"
-            stroke-width="1"
-            ><close-icon
-          /></icon>
-        </label>
-        <form class="searchform__wrapper">
-          <label for="search-input" class="searchform__text">
-            <span class="screen-reader-text">Search for:</span>
-            <input
-              id="search-input"
-              type="search"
-              placeholder="Search ..."
-              name="search-input"
-            />
-          </label>
-          <label for="search-submit" class="searchform__button">
-            <span class="screen-reader-text">Search!</span>
-            <input
-              id="search-submit"
-              type="submit"
-              name="search-submit"
-              value="search"
-            />
+    <transition name="slide-fade">
+      <div v-if="drawn" class="search__wrapper">
+        <section class="searchform">
+          <h2 class="searchform__title">
+            Press Enter / Return to begin your search.
+          </h2>
+          <label class="searchform__toggle" @click.stop="drawn = !drawn">
+            <span class="screen-reader-text">Close search form.</span>
             <icon
-              icon-name="submit search"
-              class="searchform__button--icon"
+              icon-name="close"
+              class="searchform__toggle--icon"
               stroke-width="1"
-              ><search-icon
+              ><close-icon
             /></icon>
           </label>
-        </form>
-      </section>
-    </div>
+          <form class="searchform__wrapper">
+            <label for="search-input" class="searchform__text">
+              <span class="screen-reader-text">Search for:</span>
+              <input
+                id="search-input"
+                type="search"
+                placeholder="Search ..."
+                name="search-input"
+              />
+            </label>
+            <label for="search-submit" class="searchform__button">
+              <span class="screen-reader-text">Search!</span>
+              <input
+                id="search-submit"
+                type="submit"
+                name="search-submit"
+                value="search"
+              />
+              <icon
+                icon-name="submit search"
+                class="searchform__button--icon"
+                stroke-width="1"
+                ><search-icon
+              /></icon>
+            </label>
+          </form>
+        </section>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -80,8 +68,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '~assets/css/_animation';
-
 .search {
   @apply flex items-center relative;
   &__toggle {
@@ -90,18 +76,8 @@ export default {
       @apply h-4 stroke-current;
     }
   }
-  &__toggler {
-    @apply hidden invisible h-0 w-0 z-behind absolute left-0 top-0;
-  }
   &__wrapper {
-    @apply bg-black h-screen w-screen fixed top-0 right-0 left-0 flex items-center justify-center;
-    @include transition(all, 0.5s, cubic-bezier(0.28, 0.12, 0.22, 1));
-    &.close {
-      @apply opacity-0 invisible z-behind;
-    }
-    &.open {
-      @apply opacity-100 visible z-30;
-    }
+    @apply bg-black h-screen w-screen fixed top-0 right-0 left-0 flex items-center justify-center z-30;
   }
 }
 .searchform {

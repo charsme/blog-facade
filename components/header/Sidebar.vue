@@ -1,61 +1,45 @@
 <template>
   <div class="sidebar">
-    <label
-      class="sidebar__toggle"
-      for="sidebar_toggler"
-      @click.stop="drawn = !drawn"
-    >
+    <label class="sidebar__toggle" @click.stop="drawn = !drawn">
       <icon icon-name="sidebar" class="sidebar__toggle--icon" stroke-width="2"
         ><more-icon
       /></icon>
     </label>
-    <input
-      id="sidebar_toggler"
-      type="checkbox"
-      name="sidebar_toggler"
-      class="sidebar__toggler"
-    />
-    <aside
-      class="sidebar__container"
-      role="complementary"
-      :class="drawn ? 'open' : 'close'"
-    >
-      <div class="pullover">
-        <div class="pullover__container">
-          <label
-            class="pullover__toggle"
-            for="sidebar_toggler"
-            @click.stop="drawn = !drawn"
-          >
-            <span class="screen-reader-text">Close pullover drawer.</span>
-            <icon
-              icon-name="close"
-              class="pullover__toggle--icon"
-              stroke-width="1"
-              ><close-icon
-            /></icon>
-          </label>
-          <div class="pullover__wrapper">
-            <section class="pullover__about">
-              <h2>Blog Facade</h2>
-              <p>
-                I think therefore I am, when I doubt my existence therefore I
-                prove I am exist.
-              </p>
-            </section>
-            <section class="pullover__recent">
-              <ul>
-                <li>some link</li>
-              </ul>
-            </section>
-            <section class="pullover__badges">
-              <div>some badges</div>
-            </section>
+    <transition name="slide-fade">
+      <aside v-if="drawn" class="sidebar__container" role="complementary">
+        <div class="pullover">
+          <div class="pullover__container">
+            <label class="pullover__toggle" @click.stop="drawn = !drawn">
+              <span class="screen-reader-text">Close pullover drawer.</span>
+              <icon
+                icon-name="close"
+                class="pullover__toggle--icon"
+                stroke-width="1"
+                ><close-icon
+              /></icon>
+            </label>
+            <div class="pullover__wrapper">
+              <section class="pullover__about">
+                <h2>Blog Facade</h2>
+                <p>
+                  I think therefore I am, when I doubt my existence therefore I
+                  prove I am exist.
+                </p>
+              </section>
+              <section class="pullover__recent">
+                <ul>
+                  <li>some link</li>
+                </ul>
+              </section>
+              <section class="pullover__badges">
+                <div>some badges</div>
+              </section>
+            </div>
           </div>
+          <div class="pullover__overlay"></div>
         </div>
-        <div class="pullover__overlay"></div>
-      </div>
-    </aside>
+      </aside>
+    </transition>
   </div>
 </template>
 
@@ -75,8 +59,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '~assets/css/_animation';
-
 .sidebar {
   @apply flex items-center relative;
   &__toggle {
@@ -89,14 +71,7 @@ export default {
     @apply hidden invisible h-0 w-0 z-behind absolute left-0 top-0;
   }
   &__container {
-    @apply fixed w-screen h-screen top-0 z-30 block;
-
-    &.open {
-      @apply left-0;
-    }
-    &.close {
-      @apply left-full;
-    }
+    @apply fixed w-screen h-screen top-0 left-0 z-30 block;
   }
 }
 .pullover {
