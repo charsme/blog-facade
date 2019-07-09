@@ -26,7 +26,7 @@ export default {
 
 <style lang="scss">
 .header {
-  @apply w-full fixed bg-transparent left-0 top-0 z-10 pt-6 pb-4;
+  @apply w-full fixed bg-transparent left-0 top-0 z-10 pt-8 pb-8;
   &__container {
     @apply px-16 max-w-inherit flex mx-auto w-full justify-between items-center h-8;
   }
